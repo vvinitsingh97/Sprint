@@ -1,3 +1,17 @@
+/*FILENAME	:	main.cpp
+ *
+ *
+ * DESCRIPTION	:	This is the main file which contains all th information about the program.
+ * 			It provides the menus to the user for different task. There are 11 menus for 
+ * 			different operations. All the related files(.cpp and .h) used here that is 
+ * 			declared/defined in other files.
+ *
+ * 			CHANGES MADE BY TEAM NARMADA
+ *
+ */
+
+
+
 #include <iostream>
 #include "../src/date.h"
 #include "../src/customer.h"

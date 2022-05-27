@@ -1,3 +1,15 @@
+/*FILENAME	:	rentals.cpp
+ *
+ * DESCRIPTION	:	This file hasuser-defined functions for calculating Rental bill for the user, how many
+ * 			times a car is rented, display payment details. Using sqlite3 queries in this file
+ * 			we also store rental_id, cust_id, car_id, date of rent and return etc. details
+ * 			in the database. We can get rental data also from this file using getRental function.
+ *
+ *
+ * 			CHANGES MADE BY TEAM NARMADA
+ *
+ */ 				
+
 #include <iostream>
 #include <sqlite3.h>
 #include "rentals.h"

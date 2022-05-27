@@ -1,3 +1,13 @@
+/*FILENAME	:	date.cpp
+ *
+ *
+ * DESCRIPTION	:	This file contains user-defined functions using which we enter rental 
+ * 			start date and end date. It also checks that the entered date by user is valid or not.
+ *
+ * 			CHANGES MADE BY TEAM NARAMADA
+ *
+ */ 			
+
 #include <iostream>
 #include "date.h"
 

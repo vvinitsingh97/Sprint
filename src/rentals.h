@@ -1,3 +1,10 @@
+/*FILENAME	:	rentals.h
+ *
+ *
+ * DESCRIPTION	:	This file contains all the user-defined functions declarations.
+ *
+ */
+
 #ifndef RENTALS_H
 #define RENTALS_H
 

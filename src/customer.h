@@ -1,3 +1,11 @@
+/*FILENAME	:	customer.h
+ *
+ * DESCRIPTION	:	This file contains all the declarations of functions that is used in customer.cpp
+ *
+ *
+ */ 
+
+
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 

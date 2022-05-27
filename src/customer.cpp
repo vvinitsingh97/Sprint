@@ -1,3 +1,12 @@
+/*FILENAME	:	This file contains/display all information of a customer/user.
+ * 			There are user-defined functions in this file using which we can add new customers, display all
+ * 			registered customers, modify customers details from the database using sqlite3 query.
+ *
+ *
+ * 			CHANGES MADE BY TEAM NARMADA
+ */
+
+
 #include <iostream>
 #include <sqlite3.h>
 #include "customer.h"
