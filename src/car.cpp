@@ -1,4 +1,4 @@
-/*FILENAME	:	main.cpp
+/*FILENAME	:	car.cpp
  *
  *DESCRIPTION	:	This main.cpp file display all the details about a aprticular car using car ID.
  			It also allows users to add new car, enables user to change the car cost per day.
