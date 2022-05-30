@@ -68,7 +68,7 @@ int getInput() //This function take the user input as a menu option.
 		cout << "\t\t\t\tChoose: ";
 		cin >> option;
 		cin.ignore();
-	} while(option < 1 || option > 12);
+	} while(option < 1 || option > 11);
 	return option;
 }
 
