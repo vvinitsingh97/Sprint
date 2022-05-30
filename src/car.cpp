@@ -75,10 +75,18 @@ void Car::carAdded() {
     car_id = getCurrentCarID();
 }
 
+//sqlite2 query to store/add cars in database
+/*FUNCTION NAME : void save()
+ *
+ * DESCRIPTION  : This function is used to insert values in cars table when user add
+ * 		  any new car.
+ */
+
 void save(Car c) {
     sqlite3 *DB;
     std::string sql = "INSERT INTO cars VALUES (" + std::to_string(c.carID) +  ", \"" +  c.regNo + "\", \"" + c.company + "\", \"" + c.model + "\", " + std::to_string(c.isRented) + ", \"" + c.doa.returnSQLDate() + "\", " + std::to_string(c.costPerDay) + ");";
     int connection = 0;
+    //making connection with database
     connection = sqlite3_open("database.db", &DB);
     char *errMsg;
     connection = sqlite3_exec(DB, sql.c_str(), NULL, 0, &errMsg);
@@ -98,6 +106,7 @@ Car getCar(int c_id) {
     int connection = 0;
     connection = sqlite3_open("database.db", &DB);
     char *errMsg;
+    //sqlite3 query to see the car data details
     sqlite3_stmt* statement;
     std::string sql = "SELECT * FROM cars";
     if (c_id != 0) {
@@ -120,6 +129,11 @@ Car getCar(int c_id) {
 
     return c;
 }
+/*FUNCTION NAME  :  displayAllCars()
+ *
+ * DESCRIPTION  :  This function displays the all details of a car.
+ *
+ */
 
 void displayAllCars() {
     sqlite3 *DB;
@@ -145,7 +159,11 @@ void displayAllCars() {
 
     sqlite3_close(DB);
 }
-
+/*Function name : getCurrentCarID()
+ *
+ * Description  :  This function returns only car id for a partcular car.
+ *
+ */
 int getCurrentCarID() {
     sqlite3 *DB;
     int connection = 0;
@@ -190,6 +208,11 @@ Car getCarDetails() {
     Car c(rNo, comp, mod, cost);
     return c;
 }
+/*Function Name  :  modify()
+ *
+ * Description :  This function is used here to modify car cost per day.
+ *
+ */
 
 void modify(int car_id, double newCost) {
     std::string sql = "UPDATE cars SET cost_per_day = " + std::to_string(newCost) + " WHERE car_id = " + std::to_string(car_id) + ";";
