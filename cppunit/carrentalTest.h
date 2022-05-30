@@ -1,3 +1,4 @@
+#include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
 #include "../src/car.h"
@@ -35,7 +36,7 @@ class CarTest : public CppUnit::TestFixture
 			Rental rental1;
 			int cust_id=1;
 			int car_id=2;
-			date rent_date=2022-5-30
+			Date rent_date=2022,5,30;
 			CPPUNIT_ASSERT_EQUAL(rental1.save(cust_id,car_id,rent_date),true);
 		}
 
@@ -98,7 +99,7 @@ class CarTest : public CppUnit::TestFixture
 		CPPUNIT_TEST(AddCustomer);
 		CPPUNIT_TEST(RentalCreate);
 		CPPUNIT_TEST(CustomerModify);
-		CPPUNIT_TEST(SingleCarDetails);
+		CPPUNIT_TEST(SingleCardetails);
 		CPPUNIT_TEST(DisplayAllCars);
 		CPPUNIT_TEST(DisplayCustomerDetails);
 		CPPUNIT_TEST(CarCostModify);
