@@ -16,13 +16,13 @@ class Calculator{
 
 		int getY();
 		void setY(int value);
-		int small();	//return smallest of x and y
-		int large();	//return largest of x and y
-		int add();
-		int sub();
-		int logicalAND();
-		int logicalOR();
-		int logicalXOR();
+		int small(int, int);	//return smallest of x and y
+		int large(int, int);	//return largest of x and y
+		int add(int, int);
+		int sub(int, int);
+		int logicalAND(int, int);
+		int logicalOR(int, int);
+		int logicalXOR(int, int);
 };
 #endif
 

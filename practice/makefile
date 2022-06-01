@@ -1,5 +1,5 @@
 program:main.o calculator.o
-	g++ -oprogram main.o calculator.o
+	g++ -o program main.o calculator.o
 
 main.o: main.cpp
 	g++ -g -c main.cpp

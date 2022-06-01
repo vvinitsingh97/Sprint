@@ -7,10 +7,9 @@
 
 #include<iostream>
 #include "calculator.h"
-int a,b;
 
 
-int Calculator::small()
+int Calculator::small(int a,int b)
 {
 	if(a<b)
 	{
@@ -21,7 +20,7 @@ int Calculator::small()
 	}
 }
 
-int Calculator::large()
+int Calculator::large(int a,int b)
 {
 
 	if(a>b)
@@ -34,28 +33,27 @@ int Calculator::large()
 
 }
 
-int Calculator::add()
+int Calculator::add(int a,int b)
 {
 	return a+b;
 }
 
-int Calculator::sub()
+int Calculator::sub(int a,int b)
 {
 	return a-b;
 }
 
-int Calculator::logicalAND()
+int Calculator::logicalAND(int a,int b)
 {
 	return a&b;
 }
-int Calculator::logicalOR()
+int Calculator::logicalOR(int a,int b)
 {
 	return a|b;
 }
 
-int Calculator::logicalXOR()
+int Calculator::logicalXOR(int a,int b)
 {
 	return a^b;
 }
-
 
