@@ -9,7 +9,7 @@
 #include "calculator.h"
 
 using namespace std;
-int a,b;
+int p,q;
 
 
 void printmenu()
@@ -30,12 +30,10 @@ void printmenu()
 }
 void result()
 {
-	{
-		cout << "Enter First Number: ";   
-		cin >> a;
-		cout << "Enter Second Number: ";  
-		cin >> b;
-	}
+	cout << "Enter First Number: ";   
+	cin >> p;
+	cout << "Enter Second Number: ";  
+	cin >> q;
 }
 
 
@@ -43,11 +41,10 @@ int main()
 {
 	Calculator obj;
 	int option;
-	cin>>option;
 	while(1)
 	{
 		printmenu();
-
+		cin>>option;
 		switch(option)
 		{
 			case 1:

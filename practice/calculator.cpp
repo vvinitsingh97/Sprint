@@ -10,7 +10,7 @@
 int a,b;
 
 
-int small()
+int Calculator::small()
 {
 	if(a<b)
 	{
@@ -21,7 +21,7 @@ int small()
 	}
 }
 
-int large()
+int Calculator::large()
 {
 
 	if(a>b)
@@ -34,26 +34,26 @@ int large()
 
 }
 
-int add()
+int Calculator::add()
 {
 	return a+b;
 }
 
-int sub()
+int Calculator::sub()
 {
 	return a-b;
 }
 
-int logicalAND()
+int Calculator::logicalAND()
 {
 	return a&b;
 }
-int logicalOR()
+int Calculator::logicalOR()
 {
 	return a|b;
 }
 
-int logicalXOR()
+int Calculator::logicalXOR()
 {
 	return a^b;
 }
