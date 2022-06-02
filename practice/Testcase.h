@@ -1,7 +1,7 @@
 #include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
-
+#include "calculator.h"
 using namespace std;
 
 class CalculatorTest : public CppUnit::TestFixture
@@ -9,54 +9,58 @@ class CalculatorTest : public CppUnit::TestFixture
 		public:
 			void FindSmall()
 			{
-				Calculator obj1;
-				//int k = obj1.small(10,20);
-				//CPPUNIT_ASSERT_EQUAL(10, k);
-				CPPUNIT_ASSERT(20 == small(20,22));
-				CPPUNIT_ASSERT(7 == small(-7,7));
-				CPPUNIT_ASSERT(0 == small(0,0));
-				CPPUNIT_ASSERT(20 == small(60,20));
+				Calculator obj;
+				CPPUNIT_ASSERT_EQUAL(obj.small(20,22),20);
+				CPPUNIT_ASSERT_EQUAL(obj.small(-7,7),-7);
+				CPPUNIT_ASSERT_EQUAL(obj.small(0,0),0);
+				CPPUNIT_ASSERT_EQUAL(obj.small(60,20),20);
 			}
 			void Findlarge()
 			{
-				CPPUNIT_ASSERT(20 == large(10,20));
-				CPPUNIT_ASSERT(450 == large(450,344));
-				CPPUNIT_ASSERT(345 == large(345,288));
+				Calculator obj;
+				CPPUNIT_ASSERT_EQUAL(obj.large(10,20),20);
+				CPPUNIT_ASSERT_EQUAL(obj.large(450,344),450);
+				CPPUNIT_ASSERT_EQUAL(obj.large(345,288),345);
 			}
 
 			void TestAdd()
 			{
-				CPPUNIT_ASSERT(30 == add(10,20));
-				CPPUNIT_ASSERT(40 == add(20,20));
-				CPPUNIT_ASSERT(0 == add(0,0));
-				CPPUNIT_ASSERT(300 == add(-100,-200));
+				Calculator obj;
+				CPPUNIT_ASSERT_EQUAL(obj.add(10,20),30);
+				CPPUNIT_ASSERT_EQUAL(obj.add(20,20),40);
+				CPPUNIT_ASSERT_EQUAL(obj.add(0,0),0);
+				CPPUNIT_ASSERT_EQUAL(obj.add(-100,-200),-300);
 			}
 
 			void TestSub()
 			{
-				CPPUNIT_ASSERT(100 == sub(200,100));
-				CPPUNIT_ASSERT(0 == sub(0,0));
-				CPPUNIT_ASSERT(-10 == sub(10,20));
+				Calculator obj;
+				CPPUNIT_ASSERT_EQUAL(obj.sub(200,100),100);
+				CPPUNIT_ASSERT_EQUAL(obj.sub(0,0),0);
+				CPPUNIT_ASSERT_EQUAL(obj.sub(10,20),-10);
 			}
 			void LogicalAnd()
 			{
-				CPPUNIT_ASSERT(0 == logicalAND(10,20));
-				CPPUNIT_ASSERT(20 == logicalAND(20,20));
-				CPPUNIT_ASSERT(20 == logicalAND(30,20));
-				CPPUNIT_ASSERT(-28 == logicalAND(-10,-20));
+				Calculator obj;
+				CPPUNIT_ASSERT_EQUAL(obj.logicalAND(10,20),0);
+				CPPUNIT_ASSERT_EQUAL(obj.logicalAND(20,20),20);
+				CPPUNIT_ASSERT_EQUAL(obj.logicalAND(30,20),20);
+				CPPUNIT_ASSERT_EQUAL(obj.logicalAND(-10,-20),-28);
 			}
 
 			void LogicalOr()
 			{
-				CPPUNIT_ASSERT(30 == logicalOR(10,20));
-				CPPUNIT_ASSERT(20 == logicalOR(20,20));
-				CPPUNIT_ASSERT(18 == logicalOR(-30,-20));
+				Calculator obj;
+				CPPUNIT_ASSERT_EQUAL(obj.logicalOR(10,20),30);
+				CPPUNIT_ASSERT_EQUAL(obj.logicalOR(20,20),20);
+				CPPUNIT_ASSERT_EQUAL(obj.logicalOR(-30,-20),-18);
 			}
 			void LogicalXor()
 			{
-				CPPUNIT_ASSERT(30 == logicalXOR(10,20));
-				CPPUNIT_ASSERT(0 == logicalXOR(20,20));
-				CPPUNIT_ASSERT(-14 == logicalXOR(-30,-20));
+				Calculator obj;
+				CPPUNIT_ASSERT_EQUAL(obj.logicalXOR(10,20),30);
+				CPPUNIT_ASSERT_EQUAL(obj.logicalXOR(20,20),0);
+				CPPUNIT_ASSERT_EQUAL(obj.logicalXOR(-30,-20),14);
 			}
 
 			CPPUNIT_TEST_SUITE(CalculatorTest);
