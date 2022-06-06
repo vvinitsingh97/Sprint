@@ -100,7 +100,7 @@ void printMenu()
 void waitForKeyPress() 
 {
 	cout << "Press any key to Continue...";
-	cin.ignore();
+	//	cin.ignore();
 	cin.get();
 }
 
@@ -117,7 +117,7 @@ int getInput() //This function take the user input as a menu option.
 	{
 		cout << "\t\t\t\tChoose: ";
 		cin >> option;
-		cin.ignore();
+		//		cin.ignore();
 	} while(option < 1 || option > 12);
 	return option;
 }
@@ -128,11 +128,11 @@ void carModify() //This function changes the car cost per day.
 	int c_id;
 	cout << "\t\t\t\tEnter Car ID: ";
 	cin >> c_id;
-	cin.ignore();
+	//	cin.ignore();
 	double nCost;
 	cout << "\t\t\t\tEnter New Cost per Day: ";
 	cin >> nCost;
-	cin.ignore();
+	//	cin.ignore();
 	modify(c_id, nCost);
 	waitForKeyPress();
 	clear();
@@ -144,55 +144,66 @@ void custModify() //this will modify the customer details.
 	cout << "\t\t\t\tEnter Customer ID: ";
 	int cust_id;
 	cin >> cust_id;
-	cin.ignore();
+	//	cin.ignore();
 	string mn =  "\t\t\t\t1. Modify Name\n\t\t\t\t2. Modify Email\n\t\t\t\t3. Modify Phone Number\n\t\t\t\t4. Modify Residential Address\n\t\t\t\t5. Back\n";
-	int inp = -1;
-	do
+	int inp = 0;
+	while (1)
 	{
 		cout << mn;
 		inp = getInput();
-		if(inp ==1) 
+		switch(inp) 
 		{
-			cout << "\t\t\t\tEnter New Name: ";
-			string name;
+			case 1:
+				{
+					cout <<"\t\t\t\tEnter New Name: ";
+					string name;
 
-			getline(cin, name);
-			modify(cust_id, name, "", "", "");
-			waitForKeyPress();
-			clear();
-		} 
-		else if (inp == 2) 
-		{
-			cout << "\t\t\t\tEnter New Email: ";
-			string eml;
-			getline(cin, eml);
-			modify(cust_id, "", eml, "", "");
-			waitForKeyPress();
-			clear();
-		} 
-		else if (inp == 3) 
-		{
-			cout << "\t\t\t\tEnter New Phone Number: ";
-			string pNo;
-			getline(cin, pNo);
-			modify(cust_id, "", "", pNo, "");
-			waitForKeyPress();
-			clear();
-		} 
-		else if (inp == 4) 
-		{
-			cout << "\t\t\t\tEnter New Address: ";
-			string rAdd;
-			getline(cin, rAdd);
-			modify(cust_id, "", "", "", rAdd);
-			waitForKeyPress();
-			clear();
-		} 
-		else if (inp == 5) 
-		{
-			break;
+					getline(cin, name);
+					modify(cust_id, name, "", "", "");
+					waitForKeyPress();
+					clear();
+					break;
+
+				}
+			case 2:
+				{
+					cout << "\t\t\t\tEnter New Email: ";
+					string eml;
+					getline(cin, eml);
+					modify(cust_id, "", eml, "", "");
+					waitForKeyPress();
+					clear();
+					break;
+				} 
+
+			case 3:
+				{
+					cout << "\t\t\t\tEnter New Phone Number: ";
+					string pNo;
+					getline(cin, pNo);
+					modify(cust_id, "", "", pNo, "");
+					waitForKeyPress();
+					clear();
+					break;
+				} 
+			case 4:
+				{
+					cout << "\t\t\t\tEnter New Address: ";
+					string rAdd;
+					getline(cin, rAdd);
+					modify(cust_id, "", "", "", rAdd);
+					waitForKeyPress();
+					clear();
+					break;
+				}
+			case 5:
+				{
+					break;
+
+				}
 		}
-	} while(inp != 5);
+
+	}
 }
 /*  main () Description 
  *
@@ -204,7 +215,7 @@ int main()
 	createUserPreferenceThread();
 	cout << "Enter Today\'s Date: ";
 	todayDate = getDate();
-	int opt = -1;
+	int opt = 0;
 	while(1)
 	{
 		clear();
@@ -214,132 +225,153 @@ int main()
 		switch(opt) 
 		{
 			case 1:
-				clear();
-				cout << "=========================== Add New Car ===========================\n" << endl;
-				Car c = getCarDetails();
-				save(c);
-				cout << "===================================================================" << endl;
-				waitForKeyPress();
-				clear(); 
-
+				{
+					clear();
+					cout << "=========================== Add New Car ===========================\n" << endl;
+					Car c = getCarDetails();
+					save(c);
+					cout << "===================================================================" << endl;
+					waitForKeyPress();
+					clear(); 
+					break;
+				}
 			case 2:
-				clear();
-				cout << "=========================== New Customer ===========================\n" << endl;
-				Customer cust = registerCustomer();
-				save(cust);
-				cout << "====================================================================" << endl;
-				waitForKeyPress();
-				clear();
-
+				{
+					clear();
+					cout << "=========================== New Customer ===========================\n" << endl;
+					Customer cust = registerCustomer();
+					save(cust);
+					cout << "====================================================================" << endl;
+					waitForKeyPress();
+					clear();
+					break;
+				}	
 
 			case 3:
-				cout << "============================ New Rental ============================\n" << endl;
-				Rental rent = newRental();
-				save(rent);
-				cout << "====================================================================" << endl;
-				waitForKeyPress();
-				clear();
-
+				{
+					cout << "============================ New Rental ============================\n" << endl;
+					Rental rent = newRental();
+					save(rent);
+					cout << "====================================================================" << endl;
+					waitForKeyPress();
+					clear();
+					break;
+				}
 			case 4:
-				custModify();
-
+				{
+					custModify();
+					break;
+				}
 			case 5:
-				int c_id;
-				clear();
-				cout << "=========================== Get Car Details ===========================\n" << endl;
-				cout << "\t\t\tEnter Car ID to search: ";
-				cin >> c_id;
-				cin.ignore();
-				clear();
-				Car c = getCar(c_id);
-				cout << "=======================================================================" << endl;
-				cout << c << endl;
-				cout << "\n=======================================================================" << endl;
-				waitForKeyPress();
-				clear();
-
+				{
+					int c_id;
+					clear();
+					cout << "=========================== Get Car Details ===========================\n" << endl;
+					cout << "\t\t\tEnter Car ID to search: ";
+					cin >> c_id;
+					//				cin.ignore();
+					clear();
+					Car c = getCar(c_id);
+					cout << "=======================================================================" << endl;
+					cout << c << endl;
+					cout << "\n=======================================================================" << endl;
+					waitForKeyPress();
+					clear();
+					break;
+				}
 			case 6:
-				displayAllCars();
-				waitForKeyPress();
-				clear();
-
+				{
+					displayAllCars();
+					waitForKeyPress();
+					clear();
+					break;
+				}
 			case 7:
-				int cus_id;
-				clear();
-				cout << "=========================== Get Customer Details ===========================\n" << endl;
-				cout << "\t\t\tEnter Customer ID to search: ";
-				cin >> cus_id;
-				cin.ignore();
-				Customer c = getCustomer(cus_id);
-				clear();
-				cout << "============================================================================" << endl;
-				cout << c << endl;
-				cout << "\n==========================================================================" << endl;
-				waitForKeyPress();
-				clear();
-
+				{
+					int cus_id;
+					clear();
+					cout << "=========================== Get Customer Details ===========================\n" << endl;
+					cout << "\t\t\tEnter Customer ID to search: ";
+					cin >> cus_id;
+					//			cin.ignore();
+					Customer c = getCustomer(cus_id);
+					clear();
+					cout << "============================================================================" << endl;
+					cout << c << endl;
+					cout << "\n==========================================================================" << endl;
+					waitForKeyPress();
+					clear();
+					break;
+				}
 			case 8:
-				carModify();
-
+				{
+					carModify();
+					break;
+				}
 			case 9:
-				int r_id;
-				clear();
-				cout << "=========================== Get Rental Details ===========================\n" << endl;
-				cout << "\t\t\tEnter Rental ID to search: ";
-				cin >> r_id;
-				cin.ignore();
-				Rental r = getRental(r_id);
-				clear();
-				cout << "=================================================================================" << endl;
-				cout << r << endl;
-				cout << "\n=============================================================================" << endl;
-				waitForKeyPress();
-				clear();
-
+				{
+					int r_id;
+					clear();
+					cout << "=========================== Get Rental Details ===========================\n" << endl;
+					cout << "\t\t\tEnter Rental ID to search: ";
+					cin >> r_id;
+					//			cin.ignore();
+					Rental r = getRental(r_id);
+					clear();
+					cout << "=================================================================================" << endl;
+					cout << r << endl;
+					cout << "\n=============================================================================" << endl;
+					waitForKeyPress();
+					clear();
+					break;
+				}
 
 			case 10:
-				int r_id;
-				clear();    
-				cout << "=========================== Calculate Rental Bill ===========================\n" << endl;
-				cout << "\t\t\t\tEnter Rental ID: ";
-				cin >> r_id;
-				cin.ignore();
-				Rental r = getRental(r_id);
-				if (!r.chkPaid()) 
 				{
-					double cst = r.calculateBill();
-					clear();
-					cout << "============================= Bill ===================================\n" << endl;
-					r = getRental(r_id);
-					cout << r << endl;
-					cout << "======================================================================" << endl;
-					cout << "\t\t\tCost to Pay: " << cst << "\t\t" << endl;
-					cout << "\n====================================================================\n" << endl;
-					double cp;
-					do {
-						cout << "\t\t\t\tEnter Cost Paid: ";
-						cin >> cp;
-						cin.ignore();
-						if (cp < cst) {
-							cout << "\t\t\t\tInsufficient Amount" << endl;
-						}
-					} while (cp < cst);
-
-					if (cp > cst) 
+					int r_id;
+					clear();    
+					cout << "=========================== Calculate Rental Bill ===========================\n" << endl;
+					cout << "\t\t\t\tEnter Rental ID: ";
+					cin >> r_id;
+					//			cin.ignore();
+					Rental r = getRental(r_id);
+					if (!r.chkPaid()) 
 					{
-						cout << "\t\t\t\tChange: " << (cp - cst) << endl;
-					}
-					cout << "\n======================================================================\n" << endl;
-				} 
-				else 
-				{
-					cout << "\t\t\t\tBill is already Paid" << endl;
-				}
-				waitForKeyPress();
-				clear();
+						double cst = r.calculateBill();
+						clear();
+						cout << "============================= Bill ===================================\n" << endl;
+						r = getRental(r_id);
+						cout << r << endl;
+						cout << "======================================================================" << endl;
+						cout << "\t\t\tCost to Pay: " << cst << "\t\t" << endl;
+						cout << "\n====================================================================\n" << endl;
+						double cp;
+						do {
+							cout << "\t\t\t\tEnter Cost Paid: ";
+							cin >> cp;
+							//					cin.ignore();
+							if (cp < cst) {
+								cout << "\t\t\t\tInsufficient Amount" << endl;
+							}
+						} while (cp < cst);
 
-			case 11:
-				break;
+						if (cp > cst) 
+						{
+							cout << "\t\t\t\tChange: " << (cp - cst) << endl;
+						}
+						cout << "\n======================================================================\n" << endl;
+					} 
+					else 
+					{
+						cout << "\t\t\t\tBill is already Paid" << endl;
+					}
+					waitForKeyPress();
+					clear();
+					break;
+				}
+			case 11:	{
+							exit(0);
+						}
 		}
 	}
 
@@ -348,7 +380,7 @@ int main()
 	waitForKeyPress();
 	return 0;
 	cout << "Press any key to Continue...";
-	cin.ignore();
+	//	cin.ignore();
 	cin.get();
 }
 
